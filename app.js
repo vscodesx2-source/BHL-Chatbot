@@ -57,5 +57,5 @@ $("settingsBtn").onclick=()=>$("settingsModal").classList.remove("hidden");$("cl
  if(session){userEmail=session;showApp()}else setLanguage("fr");
  const loading=$("loadingScreen");
  window.setTimeout(()=>{if(loading)loading.classList.add("is-leaving");
-   window.setTimeout(()=>{if(loading)loading.remove()},700)},2800);
+   window.setTimeout(()=>{if(loading)loading.remove()},700)},1800);
 })();
