@@ -1,0 +1,1 @@
+Placez votre logo officiel dans ce dossier et nommez le fichier exactement : BHL.LOGO.png\nLe logo sera utilisé sur l'écran de chargement, la connexion et l'application.\nConseil : exportez votre logo au format PNG pour une meilleure qualité.\n

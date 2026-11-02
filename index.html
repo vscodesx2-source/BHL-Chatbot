@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>BHL EXPRESS | Chatbot by BHL Systems</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>\n  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo-frame">
+        <img class="loading-logo" src="assets/BHL.LOGO.png" alt="BHL EXPRESS"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="loading-logo-fallback">BHL <span>EXPRESS</span></div>
+      </div>
+      <div class="loading-brand">BHL CHATBOT <span>BY BHL SYSTEMS</span></div>
+      <div class="loading-track"><span></span></div>
+      <div class="loading-caption">CHARGEMENT...</div>
+    </div>
+  </div>
+
+
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="brand-logo-wrap">
+        <img class="brand-logo" src="assets/BHL.LOGO.png" alt="BHL EXPRESS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="logo-fallback" style="display:none">BHL <span>EXPRESS</span></div>
+      </div>
+      <div class="brand-caption">BHL CHATBOT <span>BY BHL SYSTEMS</span></div>
+      <p class="muted" data-i18n="authSubtitle">Votre assistant de livraison, disponible 24h/24.</p>
+      <div class="auth-tabs">
+        <button id="loginTab" class="tab active" data-i18n="login">Connexion</button>
+        <button id="signupTab" class="tab" data-i18n="signup">Créer un compte</button>
+      </div>
+      <form id="authForm">
+        <label data-i18n="email">E-mail</label>
+        <input id="email" type="email" placeholder="nom@exemple.com" required>
+        <label data-i18n="password">Mot de passe</label>
+        <input id="password" type="password" minlength="4" placeholder="••••••••" required>
+        <button class="primary full" type="submit" id="authSubmit" data-i18n="login">Connexion</button>
+      </form>
+      <p class="tiny muted" data-i18n="demoAuth">Version de démonstration : le compte est enregistré uniquement sur cet appareil.</p>
+      <div class="powered">CHATBOT BY <b>BHL SYSTEMS</b></div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><img class="side-logo" src="assets/BHL.LOGO.png" alt="BHL EXPRESS" onerror="this.style.display='none'"><div><b>BHL EXPRESS</b><small>CHATBOT BY BHL SYSTEMS</small></div></div>
+      <button id="newChat" class="new-chat">＋ <span data-i18n="newChat">Nouvelle discussion</span></button>
+      <div class="side-label" data-i18n="history">Historique</div>
+      <div id="historyList" class="history-list"></div>
+      <div class="side-bottom">
+        <button id="settingsBtn" class="side-link">⚙ <span data-i18n="settings">Paramètres</span></button>
+        <button id="logoutBtn" class="side-link">↪ <span data-i18n="logout">Déconnexion</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><img class="mobile-logo" src="assets/BHL.LOGO.png" alt="BHL EXPRESS" onerror="this.style.display='none'"><b>BHL EXPRESS</b></div>
+        <div class="top-status"><span class="online-dot"></span><span data-i18n="available">Assistant disponible</span></div>
+        <div class="top-right"><span class="byline">CHATBOT BY <b>BHL SYSTEMS</b></span><select id="languageSelect" aria-label="Language"><option value="ar">العربية</option><option value="fr" selected>Français</option><option value="en">English</option><option value="it">Italiano</option></select></div>
+      </header>
+
+      <section id="chatView" class="chat-view">
+        <div id="welcome" class="welcome">
+          <div class="welcome-brand">
+            <img class="welcome-brand-logo" src="assets/BHL.LOGO.png" alt="BHL EXPRESS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <div class="logo-fallback welcome-fallback" style="display:none">BHL <span>EXPRESS</span></div>
+          </div>
+          <div class="brand-caption welcome-caption">BHL CHATBOT <span>BY BHL SYSTEMS</span></div>
+          <h2 data-i18n="welcomeTitle">Bienvenue chez BHL EXPRESS</h2>
+          <p data-i18n="welcomeText">Je suis votre assistant virtuel. Je peux vous aider avec les tarifs d’expédition, le poids des colis et les moyens de paiement.</p>
+          <div class="quick-grid">
+            <button class="quick" data-prompt="Je veux connaître le prix pour la France, 5 kg">📦 <span data-i18n="quickPrice">Calculer un prix</span></button>
+            <button class="quick" data-prompt="Quels sont les moyens de paiement ?">💳 <span data-i18n="quickPay">Moyens de paiement</span></button>
+            <button class="quick" data-prompt="Quelles sont les règles pour les colis ?">ℹ️ <span data-i18n="quickRules">Conditions des colis</span></button>
+          </div>
+        </div>
+        <div id="messages" class="messages"></div>
+      </section>
+
+      <form id="chatForm" class="composer">
+        <input id="chatInput" autocomplete="off" data-i18n-placeholder="chatPlaceholder" placeholder="Écrivez votre question sur nos services…">
+        <button class="send" type="submit" aria-label="Envoyer">➤</button>
+      </form>
+      <div class="footer-note" data-i18n="scopeNote">Assistant dédié aux services BHL EXPRESS uniquement.</div>
+    </main>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeSettings" class="close">×</button>
+      <div class="eyebrow">BHL EXPRESS</div>
+      <h2 data-i18n="settings">Paramètres</h2>
+      <label data-i18n="language">Langue de conversation</label>
+      <select id="settingsLanguage"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option><option value="it">Italiano</option></select>
+      <p class="tiny muted" data-i18n="settingsNote">Vous pouvez changer la langue à tout moment.</p>
+    </div>
+  </div>
+  <script src="prices.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
