@@ -80,3 +80,39 @@ label{display:block;text-align:left;font-size:12px;color:#c8cbd1;margin:14px 0 7
 .price-contact strong{color:#ff6868;white-space:nowrap}
 .contact-button{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:linear-gradient(135deg,#f20d0d,#9f0808);color:#fff;font-weight:800;padding:11px 15px;border-radius:9px;font-size:12px;box-shadow:0 5px 18px #ed08082b}
 .contact-button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+
+
+/* Rich payment and shipping policy cards */
+.payment-card,.policy-card{
+  width:100%;max-width:720px;box-sizing:border-box;
+  padding:17px 18px;margin:4px 0;
+  border:1px solid #67252b;border-radius:15px;
+  background:linear-gradient(145deg,#211417,#17191e 72%);
+  box-shadow:0 9px 28px #0005, inset 0 1px 0 #ffffff08;
+  color:#f1f1f3;line-height:1.75;overflow-wrap:anywhere
+}
+.payment-card h3,.policy-card h3{
+  margin:0 0 12px;color:#ff6666;font-size:15px;font-weight:900;
+  letter-spacing:.25px;line-height:1.5
+}
+.payment-card h4,.policy-card h4{
+  margin:15px 0 7px;color:#ff7777;font-size:13px;font-weight:850
+}
+.payment-card p,.policy-card p{
+  margin:8px 0;color:#e6e6e9;font-size:13px;line-height:1.75
+}
+.payment-card code{
+  display:inline-block;padding:2px 7px;border:1px solid #563137;
+  border-radius:6px;background:#0e0f12;color:#ff8b8b;
+  font-size:12px;letter-spacing:.4px
+}
+.payment-card .notice,.policy-card .notice{
+  margin-top:14px;padding:10px 11px;border:1px solid #59412b;
+  border-radius:9px;background:#282018;color:#f4d7a8;font-size:12px
+}
+.policy-card ul{margin:6px 0 10px;padding-inline-start:22px}
+.policy-card li{margin:7px 0;color:#e6e6e9;font-size:13px;line-height:1.7}
+.payment-card .tagline,.policy-card .tagline{
+  margin-top:14px;padding-top:11px;border-top:1px solid #49272b;
+  color:#ff8585;font-weight:800
+}
